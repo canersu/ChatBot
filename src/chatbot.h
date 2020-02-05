@@ -15,12 +15,12 @@ private:
     wxBitmap *_image; // avatar image
 
     // data handles (not owned)
-    // GraphNode *_currentNode;
-    // GraphNode *_rootNode;
-    // ChatLogic *_chatLogic;
-    std::shared_ptr<GraphNode> _currentNode;
-    std::shared_ptr<GraphNode> _rootNode;
-    std::shared_ptr<ChatLogic> _chatLogic;
+    GraphNode *_currentNode;
+    GraphNode *_rootNode;
+    ChatLogic *_chatLogic;
+    //std::shared_ptr<GraphNode> _currentNode;
+    //std::shared_ptr<GraphNode> _rootNode;
+    //std::shared_ptr<ChatLogic> _chatLogic;
 
     // proprietary functions
     int ComputeLevenshteinDistance(std::string s1, std::string s2);
@@ -41,12 +41,12 @@ public:
     //// EOF STUDENT CODE
 
     // getters / setters
-    //void SetCurrentNode(GraphNode *node);
-    void SetCurrentNode(std::shared_ptr<GraphNode> node);
-    //void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
-    void SetRootNode(std::shared_ptr<GraphNode> rootNode) { _rootNode = rootNode; }
-    //void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
-    void SetChatLogicHandle(std::shared_ptr<ChatLogic> chatLogic) { _chatLogic = chatLogic; }
+    void SetCurrentNode(GraphNode *node);
+    //void SetCurrentNode(std::shared_ptr<GraphNode> node);
+    void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
+    //void SetRootNode(std::shared_ptr<GraphNode> rootNode) { _rootNode = rootNode; }
+    void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
+    //void SetChatLogicHandle(std::shared_ptr<ChatLogic> chatLogic) { _chatLogic = chatLogic; }
     wxBitmap *GetImageHandle() { return _image; }
 
     // communication

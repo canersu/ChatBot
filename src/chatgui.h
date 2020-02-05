@@ -34,6 +34,7 @@ public:
     // getter / setter
     //ChatLogic *GetChatLogicHandle() { return _chatLogic; }
     std::unique_ptr<ChatLogic> GetChatLogicHandle() { return std::move(_chatLogic);}
+    //std::unique_ptr<ChatLogic> GetChatLogicHandle() { return _chatLogic;}
 
     // events
     void paintEvent(wxPaintEvent &evt);

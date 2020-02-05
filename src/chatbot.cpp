@@ -96,8 +96,8 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
 
     for (size_t i = 0; i < _currentNode->GetNumberOfChildEdges(); ++i)
     {
-        //GraphEdge *edge = _currentNode->GetChildEdgeAtIndex(i);
-        std::shared_ptr<GraphEdge> edge = _currentNode->GetChildEdgeAtIndex(i);
+        GraphEdge *edge = _currentNode->GetChildEdgeAtIndex(i);
+        //std::shared_ptr<GraphEdge> edge = _currentNode->GetChildEdgeAtIndex(i);
         for (auto keyword : edge->GetKeywords())
         {
             EdgeDist ed{edge, ComputeLevenshteinDistance(keyword, message)};
@@ -106,8 +106,8 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
     }
 
     // select best fitting edge to proceed along
-    //GraphNode *newNode;
-    std::shared_ptr<GraphNode> newNode;
+    GraphNode *newNode;
+    //std::shared_ptr<GraphNode> newNode;
     if (levDists.size() > 0)
     {
         // sort in ascending order of Levenshtein distance (best fit is at the top)
@@ -124,8 +124,8 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
     _currentNode->MoveChatbotToNewNode(newNode);
 }
 
-//void ChatBot::SetCurrentNode(GraphNode *node)
-void ChatBot::SetCurrentNode(std::shared_ptr<GraphNode> node)
+void ChatBot::SetCurrentNode(GraphNode *node)
+//void ChatBot::SetCurrentNode(std::shared_ptr<GraphNode> node)
 {
     // update pointer to current node
     _currentNode = node;
