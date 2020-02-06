@@ -17,21 +17,18 @@ private:
     ////
 
     // data handles (owned)
-    std::vector<GraphNode *> _nodes;
-    std::vector<GraphEdge *> _edges;
-    //std::vector<std::shared_ptr<GraphNode>> _nodes;
-    //std::vector<std::shared_ptr<GraphEdge>> _edges; 
+    //std::vector<GraphNode *> _nodes;
+    //std::vector<GraphEdge *> _edges;
+    std::vector<std::shared_ptr<GraphNode>> _nodes;
+    std::vector<std::unique_ptr<GraphEdge>> _edges; 
 
     ////
     //// EOF STUDENT CODE
 
     // data handles (not owned)
     GraphNode *_currentNode;
-    //std::shared_ptr<GraphNode> _currentNode;
     ChatBot *_chatBot;
-    //std::shared_ptr<ChatBot> _chatBot;
     ChatBotPanelDialog *_panelDialog;
-    //std::unique_ptr<ChatBotPanelDialog> _panelDialog;
 
     // proprietary type definitions
     typedef std::vector<std::pair<std::string, std::string>> tokenlist;
@@ -47,9 +44,7 @@ public:
 
     // getter / setter
     void SetPanelDialogHandle(ChatBotPanelDialog *panelDialog);
-    //void SetPanelDialogHandle(std::unique_ptr<ChatBotPanelDialog> panelDialog);
     void SetChatbotHandle(ChatBot *chatbot);
-    //void SetChatbotHandle(std::shared_ptr<ChatBot> chatbot);
 
     // proprietary functions
     void LoadAnswerGraphFromFile(std::string filename);

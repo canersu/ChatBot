@@ -32,8 +32,8 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    //ChatLogic *GetChatLogicHandle() { return _chatLogic; }
-    std::unique_ptr<ChatLogic> GetChatLogicHandle() { return std::move(_chatLogic);}
+    ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
+    //std::unique_ptr<ChatLogic> GetChatLogicHandle() { return std::move(_chatLogic);}
     //std::unique_ptr<ChatLogic> GetChatLogicHandle() { return _chatLogic;}
 
     // events
