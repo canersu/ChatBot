@@ -18,9 +18,6 @@ private:
     GraphNode *_currentNode;
     GraphNode *_rootNode;
     ChatLogic *_chatLogic;
-    //std::shared_ptr<GraphNode> _currentNode;
-    //std::shared_ptr<GraphNode> _rootNode;
-    //std::shared_ptr<ChatLogic> _chatLogic;
 
     // proprietary functions
     int ComputeLevenshteinDistance(std::string s1, std::string s2);
@@ -33,6 +30,7 @@ public:
 
     //// STUDENT CODE
     ////
+    // Rule of five
     ChatBot(const ChatBot &source);
     ChatBot &operator=(const ChatBot &source);
     ChatBot(ChatBot &&source);
